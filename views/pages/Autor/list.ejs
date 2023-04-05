@@ -1,0 +1,39 @@
+<%- include('../../fragments/header.ejs') %>
+        <main>
+            <h2><%= __('aut.list.pageTitle') %></h2>
+            <table class="table-list">
+                <tr>
+                    <th><%= __('aut.fields.imie') %></th>
+                    <th><%= __('aut.fields.nazwisko') %></th>
+                    <th><%= __('list.actions.title') %></th>
+                    
+                </tr>
+            
+            <tbody >
+            <% for (let aut of autor){ %>
+                <tr>
+                    <td><%=aut.imie %></td>
+                    <td><%=aut.nazwisko %></td>
+                    
+                    <td>
+                        <ul class="list-actions">
+                            <li>
+                                <a href="autor/details/<%=aut._id %>" class="list-actions-button-details">  <%= __('list.actions.details') %> </a>
+                            </li>
+                            <li>
+                                <a href="autor/edit/<%=aut._id %>" class="list-actions-button-edit">  <%= __('list.actions.edit') %>  </a>
+                            </li>
+                            <li>
+                                <a href="autor/delete/<%=aut._id %>" class="list-actions-button-delete">  <%= __('list.actions.delete') %>  </a>
+                            </li>
+                        </ul>
+                    </td>
+
+                </tr>
+                <% } %>
+            </tbody>
+        </table>
+            <p><a href="autor/add" class="button-add"><%= __('aut.list.addNew') %></a></p>
+            
+        </main>
+<%- include('../../fragments/footer.ejs') %>

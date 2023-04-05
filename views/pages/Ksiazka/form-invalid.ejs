@@ -1,0 +1,42 @@
+<%- include('../../fragments/header.ejs') %>
+        <main>
+            <h2>Nowa książka</h2>
+            <form class="form">
+                <label for="title">Tytuł <span class="symbol-required">*</span></label>
+                <input type="text" name="title" id="title" required/>
+                <span id="errortitle" class="error-text"> Pole jest wymagane</span>
+
+                <label for="author">Autor <span class="symbol-required">*</span></label>
+                <select name="Autor" id="Autor">
+                    <option disabled selected>---Wybierz autora---</option>
+                    <option>Adam Mickiewicz</option>
+                    <option>Juliusz Słowacki</option>
+                    
+                </select>
+                <span id="errorAuthor" class="error-text"> Pole jest wymagane</span>
+
+                <label for="publishingHouse">Wydawnictwo <span class="symbol-required">*</span></label>
+                <input type="text" name="publishingHouse" id="publishingHouse" required/>
+                <span id="errorpublishingHouse" class="error-text">Pole jest wymagane</span>
+
+                <label for="Dziedzina">Dziedzina<span class="symbol-required">*</span></label>
+                <select name="Dziedzina" id="Dziedzina" required>
+                    <option disabled selected>---Wybierz dziedzinę---</option>
+                    <option>fantastyka, horror</option>
+                    <option>polityka, historia</option>
+                    <option>naukowe</option>
+                    <option>psychologia</option>
+                    <option>literatura, obyczajowe, dramaty</option>
+                    <option>językowe, obcojęzyczne</option>
+                    <option>podróże, kultura</option>
+                </select>
+                <span id="errorDziedzina" class="error-text"> Pole jest wymagane</span>
+
+            <div class="form-buttons">
+                <p id="errorSummary" class="error-text">Błędne dane</p>
+                <input type="submit" class="form-button-submit" value="Dodaj"/>
+                <a href="..\..\index.html" class="form-button-cancel">Anuluj</a>
+            </div>
+            </form>
+        </main>
+<%- include('../../fragments/footer.ejs') %>

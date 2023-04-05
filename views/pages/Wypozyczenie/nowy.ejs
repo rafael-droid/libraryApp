@@ -1,0 +1,12 @@
+<label for="dataZamowienia">Data złożenia: <span class="symbol-required">*</span></label>
+            <% if (formMode == 'edit'  (formMode == 'showDetails')) { %>
+            <input type="date"  class="<%= validationErrors.find(e => e.path.includes('dataZamowienia')) ? 'error-input' : '' %>"  name="dataZamowienia" id="dataZamowienia" value="<%= (formMode =='edit'  formMode =='createNewAdd' ) ? new Date(z.dataZamowienia).toISOString().split('T')[0]:''%>"
+                <%= (formMode == 'showDetails') ? 'disabled' : '' %>>
+            <%}else { %>
+            <input type="date" class="<%= validationErrors.find(e => e.path.includes('dataZamowienia')) ? 'error-input' : '' %>"  name="dataZamowienia" id="dataZamowienia" value="<%= z.dataZamowienia %>" >
+            <%}%>
+            <span id="errorDate1" class="errors-text">
+                <% if(validationErrors.find(e => e.path.includes('dataZamowienia'))) {%>
+                    <%= validationErrors.find(e => e.path.includes('dataZamowienia')).message %>
+                <%}%>
+            </span>

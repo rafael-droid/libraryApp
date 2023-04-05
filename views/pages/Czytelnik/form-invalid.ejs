@@ -1,0 +1,29 @@
+<%- include('../../fragments/header.ejs') %>
+        <main>
+            <h2>Nowy czytelnik</h2>
+            <form class="form">
+                <label for="firstName">Imię: <span class="symbol-required">*</span></label>
+                <input type="text" name="firstName" id="firstName" required/>
+                <span id="errorFirstName" class="error-text"> Pole jest wymagane</span>
+
+                <label for="lastName">Nazwisko: <span class="symbol-required">*</span></label>
+                <input type="text" name="lastName" id="lastName" required/>
+                <span id="errorlastName" class="error-text"> Pole jest wymagane</span>
+
+                <label for="numberPhone">Numer tel: <span class="symbol-required">*</span></label>
+                <input type="text" name="numberPhone" id="numberPhone" required/>
+                <span id="errornumberPhone" class="error-text"> Pole jest wymagane</span>
+
+                <label for="e-mail">E-mail: <span class="symbol-required">*</span></label>
+                <input type="text" name="e-mail" id="e-mail" required/>
+                <span id="error-mail" class="error-text"> Pole jest wymagane</span>
+
+                <div class="form-buttons">
+                    <p id="errorSummary" class="error-text">Błędne dane</p>
+                    <input type="submit" class="form-button-submit" value="Dodaj"/>
+                    <a href="..\..\index.html" class="form-button-cancel">Anuluj</a>
+                    
+                </div>
+            </form>
+        </main>
+<%- include('../../fragments/footer.ejs') %>

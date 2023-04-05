@@ -1,0 +1,53 @@
+<%- include('../../fragments/header.ejs') %>
+
+        <main>
+            <h2>Szczegóły autora</h2>
+            <form class="form">
+                <label for="firstName">Imię: </label>
+                <input type="text" name="firstName" id="firstName" value="Adam" readonly disabled/><br>
+               
+
+                <label for="lastName">Nazwisko: </label>
+                <input type="text" name="lastName" id="lastName" value="Mickiewicz" readonly disabled/><br>
+             
+            </form> 
+            <br>
+            <h2>Szczegóły książek</h2>
+            <table class="table-list1">
+                <tr>
+                    <th>Tytuł</th>
+                    <th>Czytelnik</th>
+                    <th>Data wypożyczenia</th>
+                    <th>Data zwrotu</th> 
+                </tr>
+            
+            <tbody>
+                <tr>
+                    <td>Pan Tadeusz</td>
+                    <td>Piotr Nowak</td>
+                    <td>01-01-2020</td>
+                    <td>01-07-2020</td>
+
+                </tr>
+                <tr>
+                    <td>Oda do młodości</td>
+                    <td>Adam Kowalski</td>
+                    <td>01-01-2020</td>
+                    <td>01-07-2020</td>
+
+                </tr>
+                </tbody>
+                </table>
+                <br>
+            <form class="form">
+                <div class="form-buttons">
+                
+                    <a href="..\..\index.html" class="form-button-cancel">Anuluj</a>
+                </div>
+            </form>
+           
+                
+            
+        </main>
+        
+<%- include('../../fragments/footer.ejs') %>

@@ -1,0 +1,205 @@
+{
+	"main-page": {
+		"content": "Strona główna",
+		"naglowek": "Aplikacja do wypożyczania książek przez czytelników",
+		"text": "            Książka – dokument piśmienniczy, zapis myśli ludzkiej, raczej obszerny, w postaci publikacji wielostronicowej o określonej liczbie stron, o charakterze trwałym.\n            \n            Dzisiejsza postać książki wywodzi się od kodeksu, czyli kartek połączonych grzbietem, które wraz z upowszechnieniem pergaminu zastąpiły poprzednią formę dokumentu piśmienniczego, czyli zwój. \n                "
+	},
+	"nav": {
+		"main-page": "Strona główna",
+		"autor": "Autor",
+		"ksiazka": "Książka",
+		"wypozyczenie": "Wypożyczenie",
+		"czytelnik": "Czytelnik"
+	},
+	"list": {
+		"actions": {
+			"title": "Akcje",
+			"details": "Szczegóły",
+			"edit": "Edytuj",
+			"delete": "Usuń"
+		},
+		"addNew": "list.addNew"
+	},
+	"form": {
+		"actions": {
+			"return": "Powrót",
+			"edit": "Edytuj",
+			"cancel": "Anuluj",
+			"dodaj": {
+				"ksiazka": "Dodaj książkę",
+				"autor": "Dodaj autora",
+				"wypozyczenie": "Dodaj wypożyczenie",
+				"czytelnik": "Dodaj czytelnika"
+			},
+			"domena": "nazwa@domena.pl",
+			"cyfr": "cyfr",
+			"znakow": "znaków",
+			"wybierzTytul": "Wybierz tytuł",
+			"wybierzCzytelnik": "Wybierz czytelnika",
+			"wybierzAutor": "Wybierz autora",
+			"szczegoly": "Szczegóły",
+			"email": "Email",
+			"haslo": "Hasło",
+			"zaloguj": "Zaloguj się"
+		}
+
+	},
+	"aut": {
+		"fields": {
+			"imie": "Imie",
+			"nazwisko": "Nazwisko",
+			"tytul": "Tytuł",
+			"czytelnik": "Czytelnik",
+			"data_wypo": "Data wypozyczenia",
+			"data_zwrotu": "Data zwrotu"
+		},
+		"list": {
+			"title": "Pracownicy",
+			"addNew": "Dodaj nowego pracownika",
+			"noData": "Brak pracowników w bazie",
+			"pageTitle": "Lista pracowników"
+		},
+		"form": {
+			"employment": "Historia zatrudnienia",
+			"add": {
+				"pageTitle": "Dodawanie autora",
+				"btnLabel": "Dodaj autora",
+				"confirm": {
+					"header": "Potwierdzenie operacji",
+					"text": "Pomyślnie dodano autora"
+				}
+			},
+			"edit": {
+				"pageTitle": "Edycja autora",
+				"btnLabel": "Zapisz zmiany",
+				"confirm": {
+					"header": "Potwierdzenie operacji",
+					"text": "Pomyślnie zaktualizowano autora"
+				}
+			}
+		}
+	},
+	"ksia": {
+		"fields": {
+			"tytul": "Tytuł",
+			"czytelnik": "Czytelnik",
+			"autor": "Autor",
+			"wydawnictwo": "Wydawnictwo",
+			"dziedzina": "Dziedzina",
+			"numerTel": "Numer tel",
+			"data_wypo": "Data wypozyczenia",
+			"data_zwrotu": "Data zwrotu"
+		},
+		"list": {
+			"title": "Książki",
+			"addNew": "Dodaj nową książkę",
+			"noData": "Brak książek w bazie",
+			"pageTitle": "Lista książek"
+		},
+		"form": {
+			"employment": "Historia zatrudnienia",
+			"add": {
+				"pageTitle": "Dodawanie autora",
+				"btnLabel": "Dodaj autora",
+				"confirm": {
+					"header": "Potwierdzenie operacji",
+					"text": "Pomyślnie dodano autora"
+				}
+			},
+			"edit": {
+				"pageTitle": "Edycja autora",
+				"btnLabel": "Zapisz zmiany",
+				"confirm": {
+					"header": "Potwierdzenie operacji",
+					"text": "Pomyślnie zaktualizowano autora"
+				}
+			}
+		}
+	},
+	"wypo": {
+		"fields": {
+			"tytul": "Tytuł",
+			"czytelnik": "Czytelnik",
+			"numerTel": "Numer telefonu czytelnika",
+			"wydawnictwo": "Wydawnictwo",
+			"dziedzina": "Dziedzina",
+			"email": "E-mail czytelnik",
+			"autor": "Autor",
+			"data_wypo": "Data wypożyczenia",
+			"data_zwrotu": "Data zwrotu",
+			"data_wypozyczenia": "Data wypożyczenia",
+			"data_wydawnictwo": "wypo.fields.data_wydawnictwo"
+		},
+		"list": {
+			"title": "Wypożyczenia",
+			"addNew": "Dodaj nowe wypożyczenie",
+			"noData": "Brak wypożyczeń w bazie",
+			"pageTitle": "Lista wypożyczeń"
+		},
+		"form": {
+			"employment": "Historia zatrudnienia",
+			"add": {
+				"pageTitle": "Dodawanie wypozyczenia",
+				"btnLabel": "Dodaj autora",
+				"confirm": {
+					"header": "Potwierdzenie operacji",
+					"text": "Pomyślnie dodano autora"
+				}
+			},
+			"edit": {
+				"pageTitle": "Edycja autora",
+				"btnLabel": "Zapisz zmiany",
+				"confirm": {
+					"header": "Potwierdzenie operacji",
+					"text": "Pomyślnie zaktualizowano autora"
+				}
+			}
+		}
+	},
+	"czyt": {
+		"fields": {
+			"tytul": "Tytuł",
+			"autor": "Autor",
+			"data_wypo": "Data wypożyczenia",
+			"data_zwrotu": "Data zwrotu",
+			"imie": "Imie",
+			"nazwisko": "Nazwisko",
+			"numerTel": "Numer telefonu",
+			"email": "E-mail",
+			"wydawnictwo": "czyt.fields.wydawnictwo",
+			"dziedzina": "czyt.fields.dziedzina",
+			"password": "Hasło"
+		},
+		"list": {
+			"title": "Czytelnik",
+			"addNew": "Dodaj nowego czytelnika",
+			"noData": "Brak czytelników w bazie",
+			"pageTitle": "Lista czytelników"
+		},
+		"form": {
+			"employment": "Historia zatrudnienia",
+			"add": {
+				"pageTitle": "Dodawanie autora",
+				"btnLabel": "Dodaj autora",
+				"confirm": {
+					"header": "Potwierdzenie operacji",
+					"text": "Pomyślnie dodano autora"
+				}
+			},
+			"edit": {
+				"pageTitle": "Edycja autora",
+				"btnLabel": "Zapisz zmiany",
+				"confirm": {
+					"header": "Potwierdzenie operacji",
+					"text": "Pomyślnie zaktualizowano autora"
+				}
+			}
+		}
+	},
+	"zalogowanyUser": {
+		"text": "Jesteś zalogowany jako: "
+	},
+	"wyloguj": {
+		"text": "Wyloguj"
+	}
+}

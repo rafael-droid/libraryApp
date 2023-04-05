@@ -1,0 +1,84 @@
+<%- include('../../fragments/header.ejs') %>
+        <main>
+                <script type="application/javascript" src="/js/validationKsiazkaForm.js"></script>
+
+            <h2><%= __('ksia.form.add.pageTitle') %></h2>
+            <form class="form" method="post" action="<%= formAction%>" novalidate onsubmit="return validateForm();" >
+                <input type="hidden" name="_id" value="<%= ksiazka._id %>">
+
+                <label for="tytul"><%= __('ksia.fields.tytul')%>: <span class="symbol-required">*</span></label>
+                <input type="text" name="tytul" id="tytul" class="<%= validationErrors.find(e => e.path.includes('tytul')) ? 'error-input' : '' %>" placeholder="2-60 znaków" value="<%= ksiazka.tytul %>"
+                    <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+                <span id="errortytul" class="error-text">
+                    <% if(validationErrors.find(e => e.path.includes('tytul'))) { %>
+                        <%= validationErrors.find(e => e.path.includes('tytul')).message %>
+                    <% } %>
+                </span>
+
+                <label for="autor"><%= __('ksia.fields.autor')%>: <span class="symbol-required">*</span></label>
+                <select name="autor" id="autor" class="<%= validationErrors.find(e => e.path.includes('autor')) ? 'error-input' : '' %>" required <%= (formMode == 'showDetails') ? 'disabled' : ''%> >
+                    <option value="" selected>---<%= __('form.actions.wybierzAutor') %>---</option>
+                    <% for (let i=0; i<allAutor.length; i++){ let aut = allAutor[i]; %>
+
+                    <option value="<%= aut._id %>" label="<%= aut.imie + ' ' + aut.nazwisko %>"
+                        <%= (ksiazka._id && aut._id.toString() == ksiazka.autor._id.toString()) ? 'selected' : ''%>></option>
+                    <% } %>
+                </select>
+                <span id="errorautor" class="error-text">
+                    <% if(validationErrors.find(e => e.path.includes('autor'))) { %>
+                        <%= validationErrors.find(e => e.path.includes('autor')).message %>
+                    <% } %>
+                </span>
+
+                <label for="wydawnictwo"><%= __('ksia.fields.wydawnictwo')%>: <span class="symbol-required">*</span></label>
+                <input type="text" name="wydawnictwo" id="wydawnictwo" class="<%= validationErrors.find(e => e.path.includes('wydawnictwo')) ? 'error-input' : '' %>" placeholder="2-60 <%= __('form.actions.znakow') %>" value="<%= ksiazka.wydawnictwo %>"
+                    <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+                <span id="errorPublishingHouse" class="error-text">
+                    <% if(validationErrors.find(e => e.path.includes('wydawnictwo'))) { %>
+                        <%= validationErrors.find(e => e.path.includes('wydawnictwo')).message %>
+                    <% } %>
+                </span>
+                <label for="dziedzina"><%= __('ksia.fields.dziedzina')%>:<span class="symbol-required">*</span></label>
+                <input type="text" name="dziedzina" id="dziedzina" class="<%= validationErrors.find(e => e.path.includes('dziedzina')) ? 'error-input' : '' %>" placeholder="2-60 <%= __('form.actions.znakow') %>" value="<%= ksiazka.dziedzina %>"
+                    <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+                <span id="errorDziedzina" class="error-text">
+                    <% if(validationErrors.find(e => e.path.includes('dziedzina'))) { %>
+                        <%= validationErrors.find(e => e.path.includes('dziedzina')).message %>
+                    <% } %>
+                </span>
+
+               <% if (formMode == 'showDetails' || formMode == 'edit') { %>
+                <h2><%= __('form.actions.szczegoly') %></h2>
+                <table class="table-list1"><br>
+                    <tr>
+                        <th><%= __('ksia.fields.czytelnik') %></th>
+                        <th><%= __('ksia.fields.numerTel') %></th>
+                        <th><%= __('ksia.fields.data_wypo') %></th>
+                        <th><%= __('ksia.fields.data_zwrotu') %></th>
+                    </tr>
+
+                <tbody>
+                        <% for (let aut of ksiazka.wypozyczenia) {%>
+                            <tr>
+                                <td><%= aut.czytelnik.imie + ' ' + aut.czytelnik.nazwisko%></td>
+                                <td><%= aut.czytelnik.numerTel %></td>
+                                <td><%= aut.data_wypozyczenia.toISOString().split('T')[0] %></td>
+                                <td><%= aut.data_zwrotu ? aut.data_zwrotu.toISOString().split('T')[0] : '-' %></td>
+                            </tr
+                        <% } %>
+
+                            </tbody>
+                            </table>
+                            <% } %>
+
+            <div class="form-buttons">
+            <%  if (formMode != 'showDetails') { %>
+                <input type="submit" class="form-button-submit" value="<%= __('form.actions.dodaj.ksiazka') %>"/>
+                <a href="/ksiazka" class="form-button-cancel"><%= __('form.actions.cancel') %></a>
+            <% } else { %>
+                <a href="/ksiazka" class="form-button-cancel"><%= __('form.actions.return') %></a>
+            <% } %>
+            </div>
+            </form>
+        </main>
+<%- include('../../fragments/footer.ejs') %>

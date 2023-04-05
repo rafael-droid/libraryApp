@@ -1,0 +1,26 @@
+<%- include('../../fragments/header.ejs') %>
+        <main>
+            <h2>Edycja czytelnika</h2>
+            <form class="form" novalidate onsubmit="validateForm();">
+                <label for="firstName">Imię: <span class="symbol-required">*</span></label>
+                <input type="text" name="firstName" id="firstName" value="Jan"required/>
+                <span id="errorFirstName" class="error-text"></span>
+
+                <label for="lastName">Nazwisko: <span class="symbol-required">*</span></label>
+                <input type="text" name="lastName" id="lastName" value="Nowak" required/>
+                <span id="errorlastName" class="error-text"></span>
+
+                <label for="numberPhone">Numer tel: <span class="symbol-required">*</span></label>
+                <input type="text" name="numberPhone" id="numberPhone" value="500505055" required/>
+                <span id="errornumberPhone" class="error-text"></span>
+
+                <label for="e-mail">E-mail: </label>
+                <input type="text" name="e-mail" id="e-mail"  />
+                <span id="error-mail" class="error-text"></span>
+            <div class="form-buttons">
+                <input type="submit" class="form-button-submit" value="Uaktualnij"/>
+                <a href="..\..\index.html" class="form-button-cancel">Anuluj</a>
+            </div>
+            </form>
+        </main>
+<%- include('../../fragments/footer.ejs') %>

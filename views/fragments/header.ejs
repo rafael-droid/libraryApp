@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title><%= __('nav.main-page') %></title>
+        <link rel="stylesheet" href="/css/style1.css"/>
+        <meta name="viewport" content="width=device-width,initial-scale=1"/>
+
+   </head>
+    <body>
+        <header>
+            <h1>Biblioteka</h1>
+            <img src="/images/Book%20Universe.gif" alt="book" style=" width: 100px; height: 100px;">
+        </header>
+        <nav>
+            <ul>
+                <li><a href="/" class="<%= navLocation == 'main' ? 'active' : ''%>"><%= __('nav.main-page') %></a></li>
+                <% if(loggedUser){ %>
+                <li><a href="/autor" class="<%= navLocation == 'autor' ? 'active' : ''%>"><%= __('nav.autor') %></a></li>
+                <li><a href="/wypozyczenie" class="<%= navLocation == 'wypozyczenie' ? 'active' : ''%>"><%= __('nav.wypozyczenie') %></a></li>
+                <li><a href="/ksiazka" class="<%= navLocation == 'ksiazka' ? 'active' : ''%>"><%= __('nav.ksiazka') %></a></li>
+                <% } %>
+                <li><a href="/czytelnik" class="<%= navLocation == 'czytelnik' ? 'active' : ''%>"><%= __('nav.czytelnik') %></a></li>
+                <li><a href="/changeLang/pl" class="<%= lang == 'pl' ? 'active' : ''%>">PL</a></li>
+                <li><a href="/changeLang/en" class="<%= lang == 'en' ? 'active' : ''%>">EN</a></li>
+            </ul>
+        </nav>
+    <% if(!loggedUser) { %>
+        <div id="login">
+            <h5> Logowanie </h5>
+            <form method="post" action="/login" novalidate>
+                <label for="loginEmail">Email:</label>
+                <input type="email" id="loginEmail" name="email">
+
+                <label for="loginPassword"><%= __('form.actions.haslo') %>:</label>
+                <input type="password" id="loginPassword" name="password">
+
+                <input type="submit" value="  <%= __('form.actions.zaloguj') %>  ">
+                <span id="loginErrors"><%= loginError ? loginError : '' %></span>
+            </form>
+        </div>
+    <% } else {  %>
+
+        <span id="zalogowany"><%= __('zalogowanyUser.text') %> <%=loggedUser.imie + " " + loggedUser.nazwisko%></span><br>
+        <a href="/logout" id="wyloguj"><%= __('wyloguj.text') %></a>
+    <% } %>

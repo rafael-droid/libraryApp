@@ -1,0 +1,40 @@
+<%- include('../../fragments/header.ejs') %>
+        <main>
+            <h2><%= __('ksia.list.pageTitle') %></h2>
+            <table class="table-list">
+                <tr>
+                    <th><%= __('ksia.fields.tytul') %></th>
+                    <th><%= __('ksia.fields.autor') %></th>
+                    <th><%= __('list.actions.title') %></th>
+                    
+                </tr>
+            
+            <tbody>
+            <% for (let ksia of ksiazka) { %>
+                <tr>
+                    <td><%= ksia.tytul %></td>
+                    <td><a href="/autor/details/<%= ksia.autor._id %>"><%= ksia.autor.imie + ' ' +  ksia.autor.nazwisko%></td>
+                    <td>
+                        <ul class="list-actions">
+                            <li>
+                                <a href="/ksiazka/details/<%=ksia._id %>" class="list-actions-button-details"><%= __('list.actions.details') %></a>
+                            </li>
+                            <li>
+                                <a href="/ksiazka/edit/<%=ksia._id %>" class="list-actions-button-edit"><%= __('list.actions.edit') %></a>
+                            </li>
+                            <li>
+                                <a href="/ksiazka/delete/<%=ksia._id %>" class="list-actions-button-delete"><%= __('list.actions.delete') %></a>
+                            </li>
+                        </ul>
+                    </td>
+
+                </tr>
+                <% } %>
+            </tbody>
+        </table>
+
+
+            <p><a href="/Ksiazka/add" class="button-add"><%= __('ksia.list.addNew') %></a></p>
+            
+        </main>
+<%- include('../../fragments/footer.ejs') %>

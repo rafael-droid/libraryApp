@@ -1,0 +1,38 @@
+<%- include('../../fragments/header.ejs') %>
+        <main>
+            <h2>Nowe wypozyczenie</h2>
+            <form class="form">
+                <label for="title">Tytuł: <span class="symbol-required">*</span></label>
+                <select name="Czytelnik" id="Czytelnik" required>
+                    <option disabled selected>---Wybierz tytuł---</option>
+                    <option>Pan Tadeusz</option>
+                    <option>Kordian</option>
+                    
+                </select>
+                <span id="errortitle" class="error-text"> Pole jest wymagane</span>
+
+                <label for="reader">Czytelnik: <span class="symbol-required">*</span></label>
+                <select name="Czytelnik" id="Czytelnik" required>
+                    <option disabled selected>---Wybierz czytelnika---</option>
+                    <option>Piotr Nowak</option>
+                    <option>Adam Kowalski</option>
+                    
+                </select>
+                <span id="errortitle" class="error-text"> Pole jest wymagane</span>
+                
+                <label for="date1">Data wypożyczania: <span class="symbol-required">*</span></label>
+                <input type="date" name="date1" id="date1" required/>
+                <span id="errorDate1" class="error-text">Pole jest wymagane</span>
+
+                <label for="date2">Data zwrotu: </label>
+                <input type="date" name="date2" id="date2" />
+                <span id="errorDate1" class="error-text">Pole jest wymagane</span>
+                
+            <div class="form-buttons">
+                <p id="errorSummary" class="error-text">Błędne dane</p>
+                <input type="submit" class="form-button-submit" value="Dodaj"/>
+                <a href="..\..\index.html" class="form-button-cancel">Anuluj</a>
+            </div>
+            </form>
+        </main>
+<%- include('../../fragments/footer.ejs') %>

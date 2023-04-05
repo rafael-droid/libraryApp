@@ -1,0 +1,45 @@
+<%- include('../../fragments/header.ejs') %>
+        <main>
+            <h2><%= __('wypo.list.pageTitle') %></h2>
+            <table class="table-list">
+                <tr>
+                    <th><%= __('wypo.fields.tytul') %></th>
+                    <th class="delete1"><%= __('wypo.fields.autor') %></th>
+                    <th><%= __('wypo.fields.czytelnik') %></th>
+                    <th><%= __('wypo.fields.data_wypozyczenia') %></th>
+                    <th class="delete2"><%= __('wypo.fields.data_zwrotu') %></th>
+                    <th><%= __('list.actions.title') %></th>
+                    
+                </tr>
+            
+            <tbody>
+            <% for (let wypo of wypozyczenie) { %>
+                <tr>
+                    <td><a href="/ksiazka/details/<%= wypo.ksiazka._id %>"><%= wypo.ksiazka.tytul %></td>
+                    <td  class="delete1"><a href="/autor/details/<%= wypo.ksiazka.autor._id %>"><%= wypo.ksiazka.autor.imie + ' ' + wypo.ksiazka.autor.nazwisko %></td>
+                    <td><a href="/czytelnik/details/<%= wypo.czytelnik._id %>"><%= wypo.czytelnik.imie + ' ' + wypo.czytelnik.nazwisko %></td>
+                    <td><%= wypo.data_wypozyczenia.toISOString().split('T')[0] %></td>
+                    <td  class="delete2"><%= wypo.data_zwrotu ? wypo.data_zwrotu.toISOString().split('T')[0] : '-' %></td>
+                    <% if(loggedUser._id == wypo.czytelnik._id) { %>
+                    <td>
+                        <ul class="list-actions">
+                            <li>
+                                <a href="/wypozyczenie/details/<%=wypo._id %>" class="list-actions-button-details"> <%= __('list.actions.details') %> </a>
+                            </li>
+                            <li>
+                                <a href="/wypozyczenie/edit/<%=wypo._id %>" class="list-actions-button-edit">  <%= __('list.actions.edit') %>  </a>
+                            </li>
+                            <li>
+                                <a href="/wypozyczenie/delete/<%=wypo._id %>" class="list-actions-button-delete">  <%= __('list.actions.delete') %>  </a>
+                            </li>
+                        </ul>
+                    </td>
+                    <% } %>
+                </tr>
+                <% } %>
+            </tbody>
+        </table>
+            <p><a href="/Wypozyczenie/add" class="button-add"><%= __('wypo.list.addNew') %></a></p>
+            
+        </main>
+<%- include('../../fragments/footer.ejs') %>

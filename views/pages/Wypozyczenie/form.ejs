@@ -1,0 +1,104 @@
+<%- include('../../fragments/header.ejs') %>
+        <main>
+        <script type="application/javascript" src="/js/validationWypozyczenieForm.js"></script>
+            <h2><%= __('wypo.form.add.pageTitle') %></h2>
+            <form class="form" method="post" action="<%=formAction%>" novalidate onsubmit="return validateForm();" >
+                <input type="hidden" name="_id" value="<%= wypozyczenie._id %>">
+
+                <label for="ksiazka"><%= __('wypo.fields.tytul') %>:<span class="symbol-required">*</span></label>
+                <select name="ksiazka" id="ksiazka" class="<%= validationErrors.find(e => e.path.includes('ksiazka')) ? 'error-input' : '' %>"
+                <%= (formMode == 'showDetails') ? 'disabled' : ''%> >
+                     <option value="" selected>---<%= __('form.actions.wybierzTytul') %>---</option>
+                          <% for (let i=0; i<allKsiazka.length; i++){ let ksia = allKsiazka[i]; %>
+
+                             <option value="<%= ksia._id %>" label="<%= ksia.tytul %>"
+                             <%= (wypozyczenie._id && ksia._id.toString() == wypozyczenie.ksiazka._id.toString()) ? 'selected' : ''%>></option>
+                          <% } %>
+                </select>
+                <span id="errortytul" class="error-text">
+                    <% if(validationErrors.find(e => e.path.includes('ksiazka'))) { %>
+                        <%= validationErrors.find(e => e.path.includes('ksiazka')).message %>
+                    <% } %>
+                </span>
+
+                <label for="czytelnik"><%= __('wypo.fields.czytelnik') %>: <span class="symbol-required">*</span></label>
+               <select name="czytelnik" id="czytelnik"   class="<%= validationErrors.find(e => e.path.includes('czytelnik')) ? 'error-input' : '' %>"
+               <%= (formMode == 'showDetails') ? 'disabled' : ''%> >
+                    <option value="" selected>---<%= __('form.actions.wybierzCzytelnik') %>---</option>
+                        <% for (let i=0; i<allCzytelnik.length; i++){ let czyt = allCzytelnik[i]; %>
+                           <option value="<%= czyt._id %>" label="<%= czyt.imie + ' ' + czyt.nazwisko %>"
+                               <%= (wypozyczenie._id && czyt._id.toString() == wypozyczenie.czytelnik._id.toString()) ? 'selected' : ''%>></option>
+                        <% } %>
+               </select>
+               <span id="errorczytelnik" class="error-text">
+                    <% if(validationErrors.find(e => e.path.includes('czytelnik'))) { %>
+                        <%= validationErrors.find(e => e.path.includes('czytelnik')).message %>
+                    <% } %>
+               </span>
+                
+                <label for="data_wypozyczenia"><%= __('wypo.fields.data_wypo') %> <span class="symbol-required">*</span></label>
+                        <% if (formMode == 'edit' || formMode == 'showDetails') { %>
+                        <input type="date"    name="data_wypozyczenia" id="data_wypozyczenia" class="<%= validationErrors.find(e => e.path.includes('data_wypozyczenia')) ? 'error-input' : '' %>"  value="<%= (formMode =='edit' || formMode =='showDetails' ) ? new Date(wypozyczenie.data_wypozyczenia).toISOString().split('T')[0]:''%>"
+                            <%= (formMode == 'showDetails') ? 'disabled' : '' %>>
+                        <%}else { %>
+                        <input type="date"   name="data_wypozyczenia" id="data_wypozyczenia"  class="<%= validationErrors.find(e => e.path.includes('data_wypozyczenia')) ? 'error-input' : '' %>" value="<%= wypozyczenie.data_wypozyczenia %>" >
+                        <%}%>
+                <span id="errorDate_wypozyczania" class="error-text">
+                    <% if(validationErrors.find(e => e.path.includes('data_wypozyczenia'))) { %>
+                        <%= validationErrors.find(e => e.path.includes('data_wypozyczenia')).message %>
+                    <% } %>
+                </span>
+
+                <label for="data_zwrotu"><%= __('wypo.fields.data_zwrotu') %>: </label>
+                        <% if (formMode == 'edit' || formMode == 'showDetails') { %>
+                        <input type="date"    name="data_zwrotu" id="data_zwrotu" class="<%= validationErrors.find(e => e.path.includes('data_zwrotu')) ? 'error-input' : '' %>" value="<%= (formMode =='edit' || formMode =='showDetails' ) ? new Date(wypozyczenie.data_zwrotu).toISOString().split('T')[0]:'-'%>"
+                            <%= (formMode == 'showDetails') ? 'disabled' : '' %>>
+                        <%}else { %>
+                        <input type="date"  name="data_zwrotu" id="data_zwrotu" class="<%= validationErrors.find(e => e.path.includes('data_zwrotu')) ? 'error-input' : '' %>" value="<%= wypozyczenie.data_zwrotu %>" >
+                        <%}%>
+                    <span id="errorDate_zwrotu" class="error-text">
+                    <% if(validationErrors.find(e => e.path.includes('data_zwrotu'))) { %>
+                        <%= validationErrors.find(e => e.path.includes('data_zwrotu')).message %>
+                    <% } %>
+                </span>
+
+            <% if (formMode == 'showDetails' || formMode == 'edit') { %>
+            <h2><%= __('form.actions.szczegoly') %></h2>
+
+                <table class="table-list1"><br>
+                   <tr>
+                       <th><%= __('wypo.fields.numerTel') %></th>
+                       <th><%= __('wypo.fields.email') %></th>
+                       <th><%= __('wypo.fields.autor') %></th>
+                       <th><%= __('wypo.fields.wydawnictwo') %></th>
+                       <th><%= __('wypo.fields.dziedzina') %></th>
+                   </tr>
+
+                <tbody>
+
+                     <tr>
+                         <td><%= wypozyczenie.czytelnik.numerTel%></td>
+                         <td><%= wypozyczenie.czytelnik.email ? wypozyczenie.czytelnik.email : '-' %></td>
+                         <td><%= wypozyczenie.ksiazka.autor.imie + ' ' + wypozyczenie.ksiazka.autor.nazwisko%></td>
+                         <td><%= wypozyczenie.ksiazka.wydawnictwo%></td>
+                         <td><%= wypozyczenie.ksiazka.dziedzina%></td>
+                     </tr
+
+
+                 </tbody>
+                </table>
+            <% } %>
+
+
+
+            <div class="form-buttons">
+            <%  if (formMode != 'showDetails') { %>
+                <input type="submit" class="form-button-submit" value="<%= __('form.actions.dodaj.wypozyczenie') %>"/>
+                <a href="/wypozyczenie" class="form-button-cancel"><%= __('form.actions.cancel') %></a>
+            <% } else { %>
+                <a href="/wypozyczenie" class="form-button-cancel"><%= __('form.actions.return') %></a>
+            <% } %>
+            </div>
+            </form>
+        </main>
+<%- include('../../fragments/footer.ejs') %>

@@ -1,0 +1,35 @@
+<%- include('../../fragments/header.ejs') %>
+        <main>
+            <h2>Edycja wypożyczenia</h2>
+            <form class="form">
+
+                <label for="title">Tytuł <span class="symbol-required">*</span></label>
+                <select name="Czytelnik" id="Czytelnik" required>
+                    <option disabled >---Wybierz tytuł---</option>
+                    <option selected>Pan Tadeusz</option>
+                    <option>Kordian</option>
+                    
+                </select><br>
+
+                <label for="reader">Czytelnik <span class="symbol-required">*</span></label>
+                <select name="Czytelnik" id="Czytelnik">
+                    <option disabled>---Wybierz czytelnika---</option>
+                    <option selected>Piotr Nowak</option>
+                    <option>Adam Kowalski</option>
+                    
+                </select><br>
+                
+                <label for="date1">Data wypożyczania <span class="symbol-required">*</span></label>
+                <input type="date" name="date1" id="date1" value="2020-07-01" required/>
+                <span id="errorDate1" class="error-text"></span>
+
+                <label for="date2">Data zwrotu </label>
+                <input type="date" name="date2" id="date2" value="2020-07-10" />
+                <span id="errorDate1" class="error-text"></span>
+            <div class="form-buttons">
+                <input type="submit" class="form-button-submit" value="Uaktualnij"/>
+                <a href="..\..\index.html" class="form-button-cancel">Anuluj</a>
+            </div>
+            </form>
+        </main>
+<%- include('../../fragments/footer.ejs') %>

@@ -1,0 +1,42 @@
+<%- include('../../fragments/header.ejs') %>
+        <main>
+            <h2>Szczegóły wypożyczenia</h2>
+            <form class="form">
+                <label for="title">Tytuł: </label>
+                <input type="text" name="title" id="title" value="Pan Tadeusz" readonly disabled/><br>
+
+                <label for="Reader">Czytelnik: </label>
+                <input type="text" name="reader" id="reader" value="Piotr Nowak" readonly disabled/><br>
+
+                <label for="phoneNumber">Numer telefonu czytelnika: </label>
+                <input type="text" name="phoneNumber" id="phoneNumber" value="500500500" readonly disabled/><br>
+
+                <label for="e-mail">E-mail czytelnika: </label>
+                <input type="text" name="e-mail" id="e-mail" value="czytelnik123@ksiazka.com" readonly disabled/><br>
+
+                <label for="date1">Data wypożyczania: </label>
+                <input type="date" name="date1" id="date1" value="01.01.2020" readonly disabled/><br>
+
+                <label for="date2">Data zwrotu: </label>
+                <input type="date" name="date2" id="date2" value="01.07.2020" readonly disabled/><br>
+
+                <label for="author">Autor: </label>
+                <input type="text" name="author" id="author" value="Adam Mickiewicz" readonly disabled/><br>
+
+                <label for="publishing house">Wydawnictwo: </label>
+                <input type="text" name="publishing house" id="publishing house" value="Znak" readonly disabled/><br>
+
+                <label for="field">Dziedzina: </label>
+                <input type="text" name="field" id="field" value="Fantasy" readonly disabled/><br>
+
+            
+                <div class="form-buttons">
+                
+                    <a href="..\..\index.html" class="form-button-cancel">Anuluj</a>
+                </div>
+            </form>
+            
+                    
+
+        </main>
+<%- include('../../fragments/footer.ejs') %>

@@ -1,0 +1,38 @@
+<%- include('../../fragments/header.ejs') %>
+        <main>
+            <h2>Edycja książki</h2>
+            <form class="form">
+                <label for="title">Tytuł <span class="symbol-required">*</span></label>
+                <input type="text" name="title" id="title" value="Pan Tadeusz"required/>
+                <span id="errortitle" class="error-text"></span>
+
+                <label for="author">Autor <span class="symbol-required">*</span></label>
+                <select name="Autor" id="Autor">
+                    <option disabled>---Wybierz autora---</option>
+                    <option selected>Adam Mickiewicz</option>
+                    <option>Juliusz Słowacki</option>
+                    
+                </select><br>
+
+                <label for="publishingHouse">Wydawnictwo <span class="symbol-required">*</span></label>
+                <input type="text" name="publishingHouse" id="lastName" value="Znak" required/>
+                <span id="errorlastName" class="error-text"></span>
+
+                <label for="Dziedzina">Dziedzina<span class="symbol-required">*</span></label>
+                <select name="Dziedzina" id="Dziedzina">
+                    <option disabled>---Wybierz dziedzinę---</option>
+                    <option>polityka, historia</option>
+                    <option>naukowe</option>
+                    <option selected>fantastyka, horror</option>
+                    <option>psychologia</option>
+                    <option>literatura, obyczajowe, dramaty</option>
+                    <option>językowe, obcojęzyczne</option>
+                    <option>podróże, kultura</option>
+                </select>
+            <div class="form-buttons">
+                <input type="submit" class="form-button-submit" value="Uaktualnij"/>
+                <a href="..\..\index.html" class="form-button-cancel">Anuluj</a>
+            </div>
+            </form>
+        </main>
+<%- include('../../fragments/footer.ejs') %>

@@ -1,0 +1,91 @@
+<%- include('../../fragments/header.ejs') %>
+
+        <main>
+        <script type="application/javascript" src="/js/validationCzytelnikForm.js"></script>
+            <h2><%= __('czyt.form.add.pageTitle') %></h2>
+            <form class="form" method="post" action="<%=formAction%>" novalidate onsubmit=" return validateForm();">
+                <input type="hidden" name="_id" value="<%= czytelnik._id %>">
+
+                <label for="imie"><%= __('czyt.fields.imie')%>: <span class="symbol-required">*</span></label>
+                <input type="text" name="imie" id="imie" class="<%= validationErrors.find(e => e.path.includes('imie')) ? 'error-input' : '' %>" placeholder="2-60 <%= __('form.actions.znakow') %>" value="<%= czytelnik.imie %>"
+                    <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+                <span id="errorImie" class="error-text">
+                    <% if(validationErrors.find(e => e.path.includes('imie'))) { %>
+                        <%= validationErrors.find(e => e.path.includes('imie')).message %>
+                    <% } %>
+                </span>
+
+                <label for="nazwisko"><%= __('czyt.fields.nazwisko')%>: <span class="symbol-required">*</span></label>
+                <input type="text" name="nazwisko" id="nazwisko" class="<%= validationErrors.find(e => e.path.includes('nazwisko')) ? 'error-input' : '' %>"  placeholder="2-60 <%= __('form.actions.znakow') %>" value="<%= czytelnik.nazwisko %>"
+                    <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+                <span id="errorNazwisko" class="error-text">
+                    <% if(validationErrors.find(e => e.path.includes('nazwisko'))) { %>
+                        <%= validationErrors.find(e => e.path.includes('nazwisko')).message %>
+                    <% } %>
+                </span>
+
+                <label for="numerTel"><%= __('czyt.fields.numerTel')%>: <span class="symbol-required">*</span></label>
+                <input type="text" name="numerTel" id="numerTel" class="<%= validationErrors.find(e => e.path.includes('numerTel')) ? 'error-input' : '' %>" placeholder="2-60 <%= __('form.actions.cyfr') %>" value="<%= czytelnik.numerTel %>"
+                    <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+                <span id="errorNumerTel" class="error-text">
+                    <% if(validationErrors.find(e => e.path.includes('numerTel'))) { %>
+                        <%= validationErrors.find(e => e.path.includes('numerTel')).message %>
+                    <% } %>
+                </span>
+
+                <label for="email"><%= __('czyt.fields.email')%>: </label>
+                <input type="email" name="email" id="email" class="<%= validationErrors.find(e => e.path.includes('email')) ? 'error-input' : '' %>" placeholder="2-60 <%= __('form.actions.domena') %>" value="<%= czytelnik.email %>"
+                    <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+                <span id="error-mail" class="error-text">
+                    <% if(validationErrors.find(e => e.path.includes('email'))) { %>
+                        <%= validationErrors.find(e => e.path.includes('email')).message %>
+                    <% } %>
+                </span>
+
+                <label for="password"><%= __('czyt.fields.password')%>: <span class="symbol-required">*</span></label>
+                <input type="password" name="password" id="password"  placeholder=" Min 2 <%= __('form.actions.cyfr') %>" value="<%= czytelnik.password %>"
+                    <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
+                <span id="errorPassword" class="error-text">
+                    <% if(validationErrors.find(e => e.path.includes('password'))) { %>
+                        <%= validationErrors.find(e => e.path.includes('password')).message %>
+                    <% } %>
+                </span>
+
+                <% if (formMode == 'showDetails' || formMode == 'edit') { %>
+                <h2><%= __('form.actions.szczegoly') %></h2>
+                            <table class="table-list1"><br>
+                                <tr>
+                                    <th><%= __('czyt.fields.tytul') %></th>
+                                    <th><%= __('czyt.fields.autor') %></th>
+                                    <th><%= __('czyt.fields.data_wypo') %></th>
+                                    <th><%= __('czyt.fields.data_zwrotu') %></th>
+                                </tr>
+
+                            <tbody>
+                                <% for(let czyt of czytelnik.wypozyczenia) { %>
+                                <tr>
+                                                    <td><%= czyt.ksiazka.tytul %></td>
+                                                    <td><%= czyt.autor.imie + ' ' + czyt.autor.nazwisko%></td>
+                                                    <td><%= czyt.data_wypozyczenia.toISOString().split('T')[0]%></td>
+                                                    <td><%= czyt.data_zwrotu ? czyt.data_zwrotu.toISOString().split('T')[0] : '-' %></td>
+                                </tr>
+                                <% } %>
+                                </tbody>
+                                </table>
+                                <% } %>
+
+
+
+
+            <div class="form-buttons">
+
+            <%  if (formMode != 'showDetails') { %>
+                <input type="submit" class="form-button-submit" value="<%= __('form.actions.dodaj.czytelnik') %>"/>
+                <a href="/czytelnik" class="form-button-cancel"><%= __('form.actions.cancel') %></a>
+            <% } else { %>
+                <a href="/czytelnik" class="form-button-cancel"><%= __('form.actions.return') %></a>
+            <% } %>
+            </div>
+            </form>
+        </main>
+<%- include('../../fragments/footer.ejs') %>

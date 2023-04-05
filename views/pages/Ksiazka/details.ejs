@@ -1,0 +1,56 @@
+<%- include('../../fragments/header.ejs') %>
+        <main>
+            <h2>Szczegóły książki</h2>
+            <form class="form">
+                <label for="title">Tytuł: </label>
+                <input type="text" name="title" id="title" value="Pan Tadeusz" readonly disabled/><br>
+
+                <label for="author">Autor: </label>
+                <input type="text" name="author" id="author" value="Adam Mickiewicz" readonly disabled/><br>
+
+                <label for="publishing house">Wydawnictwo: </label>
+                <input type="text" name="publishing house" id="publishing house" value="Znak" readonly disabled/><br>
+
+                <label for="field">Dziedzina: </label>
+                <input type="text" name="field" id="field" value="Fantasy" readonly disabled/>
+            </form>
+            <br>
+                <h2>Szczegóły wypożyczenia</h2>
+                <table class="table-list1">
+                    <tr>
+                        <th>Czytelnik</th>
+                        <th>Numer telefonu</th>
+                        <th>Data wypożyczenia</th>
+                        <th>Data zwrotu</th>                        
+                    </tr>
+                
+                <tbody>
+                    <tr>
+                        <td>Piotr Nowak</td>
+                        <td>500500500</td>
+                        <td>01-01-2020</td>
+                        <td>01-07-2020</td>
+                    </tr>
+                    <tr>
+                        <td>Adam Kowalski</td>
+                        <td>500500500</td>
+                        <td>21-10-2021</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+                </table>
+                <br>
+            <form class="form">
+                <div class="form-buttons">
+                
+                    <a href="..\..\index.html" class="form-button-cancel">Anuluj</a>
+                </div>
+            </form>
+                        
+                   
+              
+
+            
+            
+        </main>
+<%- include('../../fragments/footer.ejs') %>

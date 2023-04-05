@@ -1,0 +1,156 @@
+{
+	"main-page": {
+		"content": "Main Page",
+		"naglowek": "An app to rental books by readers ",
+		"text": "Book - stationery, a record of human thought, rather comprehensive, in the form of a multi-page publication with a specific number of pages, a permanent nature.\n            \n             Today's book of the book is derived from the Code, i.e. pages connected by a ridge, which, together with the dissemination of parchment, replaced the previous form of the literature document, or the scroll. \n                "
+	},
+	"zalogowanyUser": {
+		"text": "You are logged in as : "
+	},
+	"nav": {
+		"main-page": "Main page",
+		"autor": "Author",
+		"ksiazka": "Book",
+		"wypozyczenie": "Rental",
+		"czytelnik": "Reader"
+	},
+	"list": {
+		"actions": {
+			"title": "Actions",
+			"details": "Details",
+			"edit": "Edit",
+			"delete": "Delete"
+		}
+	},
+	"form": {
+		"actions": {
+			"return": "Return",
+			"edit": "Edit",
+			"cancel": "Cancel",
+			"dodaj": {
+				"ksiazka": "Add book",
+				"autor": "Add author",
+				"wypozyczenie": "Add rental",
+				"czytelnik": "Add reader"
+			},
+			"domena": "name@domain.pl",
+			"cyfr": "number",
+			"znakow": "characters ",
+			"wybierzTytul": "Select the title ",
+			"wybierzCzytelnik": "Select the reader",
+			"wybierzAutor": "Select the author",
+			"szczegoly" : "Details",
+			"email": "Email",
+			"haslo": "Password",
+			"zaloguj": "Log in"
+		}
+	},
+	"aut": {
+		"fields": {
+			"imie": "Name",
+			"nazwisko": "Surname",
+			"email": "Email",
+			"tytul": "title",
+			"czytelnik": "reader",
+			"data_wypo": "date of rental",
+			"data_zwrotu": "date of return"
+		},
+		"list": {
+			"title": "Employees",
+			"addNew": "Add new author",
+			"noData": "No employees in database",
+			"pageTitle": "List of authors"
+		},
+		"form": {
+			"employment": "History of employment",
+			"add": {
+				"pageTitle": "Adding a new author",
+				"btnLabel": "Add the employee",
+				"confirm": {
+					"header": "Confirmation",
+					"text": "The new employee has been successfully created"
+				}
+			},
+			"edit": {
+				"pageTitle": "Editing an employee",
+				"btnLabel": "Save changes",
+				"confirm": {
+					"header": "Confirmation",
+					"text": "The employee has been successfully updated"
+				}
+			}
+		}
+	},
+	"ksia": {
+		"list": {
+			"pageTitle": "List of books",
+			"addNew": "Add new book"
+		},
+		"fields": {
+			"title": "Title",
+			"autor": "Author",
+			"tytul": "Title",
+			"czytelnik": "Reader",
+			"numerTel": "Phone number",
+			"data_wypo": "Date of rental",
+			"data_zwrotu": "Date of return",
+			"wydawnictwo": "Publisher",
+			"dziedzina": "Field"
+		},
+		"form": {
+			"add": {
+				"pageTitle": "Adding a new book"
+			}
+		}
+	},
+	"wypo": {
+		"list": {
+			"pageTitle": "List of rental",
+			"addNew": "Add new rental"
+		},
+		"fields": {
+			"tytul": "title",
+			"autor": "author",
+			"czytelnik": "reader",
+			"data_wypozyczenia": "date of rental",
+			"data_zwrotu": "date of return",
+			"data_wypo": "date of rental",
+			"numerTel": "phone number",
+			"email": "email",
+			"wydawnictwo": "publisher",
+			"dziedzina": "Field"
+		},
+		"form": {
+			"add": {
+				"pageTitle": "Adding a new rental"
+			}
+		}
+	},
+	"czyt": {
+		"fields": {
+			"autor": "Author",
+			"wydawnictwo": "Publisher",
+			"dziedzina": "Field",
+			"imie": "Name",
+			"nazwisko": "Surname",
+			"numerTel": "Phone number",
+			"email": "E-mail",
+			"tytul": "Title",
+			"data_wypo": "Date of rental",
+			"data_zwrotu": "Date of return",
+			"password": "Password"
+		},
+		"list": {
+			"pageTitle": "List of readers",
+			"addNew": "Add new reader"
+		},
+		"form": {
+			"add": {
+				"pageTitle": "Adding a new reader"
+			}
+		}
+	},
+	"wyloguj": {
+		"text": "Log out"
+	}
+}

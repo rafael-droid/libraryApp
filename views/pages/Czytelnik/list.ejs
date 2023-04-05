@@ -1,0 +1,45 @@
+<%- include('../../fragments/header.ejs') %>
+
+        <main>
+            <h2><%= __('czyt.list.pageTitle') %></h2>
+            <table class="table-list">
+                <tr>
+                    <th><%= __('czyt.fields.imie') %></th>
+                    <th><%= __('czyt.fields.nazwisko') %></th>
+                    <% if(loggedUser) { %>
+                    <th><%= __('list.actions.title') %></th>
+                    <% } %>
+                </tr>
+
+            <tbody>
+               <% for (let czyt of czytelnik) { %>
+                <tr>
+                    <td><%= czyt.imie %></td>
+                    <td><%= czyt.nazwisko %></td>
+                    <% if(loggedUser) { %>
+                    <td>
+                        <ul class="list-actions">
+                        <% if(loggedUser._id == czyt._id) { %>
+                            <li>
+                                <a href="czytelnik/details/<%=czyt._id %>"class="list-actions-button-details"><%= __('list.actions.details') %></a>
+                            </li>
+
+                            <li>
+                                <a href="czytelnik/edit/<%=czyt._id %>" class="list-actions-button-edit"><%= __('list.actions.edit') %></a>
+                            </li>
+                            <li>
+                                <a href="czytelnik/delete/<%=czyt._id %>" class="list-actions-button-delete"><%= __('list.actions.delete') %></a>
+                            </li>
+                        <% } %>
+                        </ul>
+                    </td>
+                    <% } %>
+
+                </tr>
+                <% } %>
+            </tbody>
+        </table>
+            <p><a href="/czytelnik/add" class="button-add"><%= __('czyt.list.addNew') %></a></p>
+            
+        </main>
+<%- include('../../fragments/footer.ejs') %>
